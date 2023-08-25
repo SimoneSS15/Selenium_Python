@@ -1,9 +1,11 @@
 
-
 import time
 
 from selenium import webdriver
-browser = webdriver.Chrome()  # aqui está instanciando o chrome na variável browser (poderia ser outro nome)
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
+servico = Service(ChromeDriverManager().install())
+browser = webdriver.Chrome(service=servico)  # aqui está instanciando o chrome na variável browser (poderia ser outro nome)
 # get()
 browser.get("https://google.com")  # abre o google
 time.sleep(5)
